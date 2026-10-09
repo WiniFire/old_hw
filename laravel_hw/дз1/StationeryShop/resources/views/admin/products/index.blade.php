@@ -1,0 +1,5 @@
+@extends('layouts.app')
+@section('title', 'Управление товарами')
+@section('content')
+    <div class="page-heading"><h1>Товары</h1><a class="button" href="{{ route('admin.products.create') }}">Добавить товар</a></div><div class="panel table-wrap"><table><thead><tr><th>Название</th><th>Категория</th><th>Цена</th><th>Остаток</th><th>Действия</th></tr></thead><tbody>@forelse($products as $product)<tr><td>{{ $product->name }}</td><td>{{ $product->category }}</td><td class="nowrap">{{ $product->formattedPrice() }}</td><td>{{ $product->stock }}</td><td><div class="table-actions"><a href="{{ route('admin.products.edit', $product) }}">Изменить</a><form method="POST" action="{{ route('admin.products.destroy', $product) }}" data-confirm="Удалить товар из каталога?">@csrf @method('DELETE')<button class="text-button danger" type="submit">Удалить</button></form></div></td></tr>@empty<tr><td colspan="5">Товаров пока нет.</td></tr>@endforelse</tbody></table></div>{{ $products->links('partials.pagination') }}
+@endsection

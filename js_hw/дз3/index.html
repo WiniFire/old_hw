@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина покупок</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="cart.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="app">
+        <h1>Корзина покупок</h1>
+        <p class="subtitle">Дескрипторы свойств и Proxy логируют операции с корзиной</p>
+
+        <div class="columns">
+            <div class="left-column">
+                <section class="panel">
+                    <h2>Добавить товар</h2>
+                    <form id="add-form" class="panel-body">
+                        <label class="visually-hidden" for="product-name">Название товара</label>
+                        <input id="product-name" placeholder="Название товара" maxlength="100" required autocomplete="off">
+                        <label class="visually-hidden" for="product-price">Цена в монетах</label>
+                        <input id="product-price" type="number" min="0" max="1000000" step="0.01" placeholder="Цена в монетах" required>
+                        <label class="visually-hidden" for="product-quantity">Количество</label>
+                        <input id="product-quantity" type="number" min="1" max="1000000" step="1" value="1" required>
+                        <button class="green" type="submit">Добавить в корзину</button>
+                    </form>
+                </section>
+
+                <section class="panel">
+                    <h2>Управление корзиной</h2>
+                    <div class="panel-body">
+                        <button id="delete-first" class="red" type="button">Удалить первый товар</button>
+                        <button id="clear-cart" class="yellow" type="button">Очистить корзину</button>
+                    </div>
+                </section>
+            </div>
+
+            <section class="panel cart-panel">
+                <h2>Содержимое корзины</h2>
+                <div class="panel-body">
+                    <div id="cart-items" class="cart-items"></div>
+                    <p id="empty-message" class="empty-message">Корзина пуста</p>
+                    <div class="total"><strong>Общая стоимость:</strong> <span id="total-value">0</span> монет</div>
+                    <button id="show-total" class="blue" type="button">Показать общую стоимость</button>
+                </div>
+            </section>
+        </div>
+
+        <p id="message" class="message" role="alert"></p>
+
+        <section class="panel log-panel">
+            <h2>Журнал операций</h2>
+            <div class="panel-body">
+                <ul id="operation-log" class="operation-log" aria-label="Журнал операций"></ul>
+                <span id="log-status" class="visually-hidden" role="status" aria-live="polite"></span>
+                <button id="clear-log" class="gray" type="button">Очистить лог</button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

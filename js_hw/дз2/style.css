@@ -1,0 +1,276 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 24px;
+    font-family: Arial, sans-serif;
+    color: #203246;
+    background: #f0f4f8;
+}
+
+button,
+textarea,
+input {
+    font: inherit;
+}
+
+.app {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.header,
+.section-heading,
+.result-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.header {
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    margin: 0 0 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #516c88;
+}
+
+h1 {
+    margin: 0 0 12px;
+    font-size: 32px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.subtitle {
+    margin: 0;
+    line-height: 1.5;
+    color: #5c6f82;
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: 350px minmax(0, 1fr);
+    gap: 22px;
+}
+
+.panel {
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #dbe4ed;
+    border-radius: 14px;
+}
+
+.small {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #586d82;
+}
+
+.counter {
+    background: #eef3f9;
+    color: #425e7d;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.decorator-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.decorator-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px;
+    border: 1px solid #dbe4ed;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.decorator-card:hover {
+    background: #f6f9fd;
+}
+
+.decorator-card.active {
+    background: #edf4ff;
+    border-color: #3975d2;
+}
+
+.decorator-card input {
+    width: 18px;
+    height: 18px;
+    margin: 2px 0 0;
+    flex-shrink: 0;
+    accent-color: #285fc0;
+}
+
+.decorator-description {
+    display: grid;
+    gap: 5px;
+}
+
+.decorator-description strong {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.text-panels {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 22px;
+    min-width: 0;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    min-height: 210px;
+    padding: 16px;
+    margin-top: 20px;
+    border: 1px solid #c7d4e1;
+    border-radius: 9px;
+    color: inherit;
+    background: #fafcfe;
+    font-size: 17px;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+.result-output {
+    min-height: 180px;
+    margin: 20px 0 16px;
+    padding: 16px;
+    background: #f2f7ff;
+    border: 1px solid #d7e5f7;
+    border-radius: 9px;
+    font-size: 18px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.result-output.empty::before {
+    content: "Пустая строка";
+    color: #6d7f92;
+    font-size: 14px;
+}
+
+.secondary {
+    padding: 10px 15px;
+    min-height: 42px;
+    border: 1px solid #c5d2e2;
+    border-radius: 8px;
+    background: #fff;
+    color: #244a76;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.secondary:hover {
+    background: #edf4ff;
+}
+
+.small-button {
+    padding: 7px 12px;
+    font-size: 13px;
+    min-height: 36px;
+}
+
+button:focus-visible,
+textarea:focus-visible,
+input:focus-visible {
+    outline: 3px solid #90baff;
+    outline-offset: 3px;
+}
+
+.pipeline-panel {
+    margin-top: 22px;
+}
+
+.pipeline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.badge,
+.pipeline-source {
+    padding: 8px 11px;
+    border-radius: 7px;
+    font-size: 13px;
+}
+
+.badge {
+    color: #255aab;
+    background: #eaf2ff;
+    border: 1px solid #bfd4f5;
+}
+
+.pipeline-source {
+    background: #eef2f6;
+    color: #50677f;
+}
+
+.arrow {
+    color: #71879f;
+}
+
+#pipeline-note {
+    margin-bottom: 0;
+}
+
+@media (max-width: 850px) {
+    body {
+        padding: 24px 16px;
+    }
+
+    .header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .decorator-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .panel {
+        padding: 18px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .decorator-list {
+        grid-template-columns: 1fr;
+    }
+
+    .result-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+}

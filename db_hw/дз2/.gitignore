@@ -1,0 +1,5 @@
+**/bin/
+**/obj/
+**/warehouse.db
+**/warehouse.db-shm
+**/warehouse.db-wal

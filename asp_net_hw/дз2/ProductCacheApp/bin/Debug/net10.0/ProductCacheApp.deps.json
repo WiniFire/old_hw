@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "ProductCacheApp/1.0.0": {
+        "runtime": {
+          "ProductCacheApp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ProductCacheApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

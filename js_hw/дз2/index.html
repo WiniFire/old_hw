@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Декораторы текста</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="decorators.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="app">
+        <header class="header">
+            <div>
+                <p class="eyebrow">JavaScript · функции-декораторы</p>
+                <h1>Декораторы текста</h1>
+                <p class="subtitle">Введите текст и включите преобразования — результат обновится сразу.</p>
+            </div>
+            <button id="reset-button" class="secondary" type="button">Сбросить декораторы</button>
+        </header>
+
+        <div class="workspace">
+            <section class="panel decorators-panel" aria-labelledby="decorators-heading">
+                <div class="section-heading">
+                    <h2 id="decorators-heading">Преобразования</h2>
+                    <span id="active-count" class="counter">0 / 7</span>
+                </div>
+                <p class="small">Декораторы применяются в порядке списка, сверху вниз.</p>
+                <div id="decorator-list" class="decorator-list"></div>
+            </section>
+
+            <div class="text-panels">
+                <section class="panel" aria-labelledby="input-heading">
+                    <div class="section-heading">
+                        <h2 id="input-heading"><label for="text-input">Исходный текст</label></h2>
+                        <span id="input-count" class="small">0 символов</span>
+                    </div>
+                    <textarea id="text-input" spellcheck="false" placeholder="Напишите что-нибудь…">Привет, мир!</textarea>
+                </section>
+
+                <section class="panel result-panel" aria-labelledby="result-heading">
+                    <div class="section-heading">
+                        <h2 id="result-heading">Результат</h2>
+                        <button id="copy-button" class="secondary small-button" type="button">Копировать</button>
+                    </div>
+                    <div id="result-output" class="result-output" role="status" aria-live="polite" aria-atomic="true"></div>
+                    <div class="result-footer">
+                        <span id="result-count" class="small"></span>
+                        <span id="copy-status" class="small" role="status"></span>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <section class="panel pipeline-panel" aria-labelledby="pipeline-heading">
+            <h2 id="pipeline-heading">Активная цепочка</h2>
+            <div id="pipeline" class="pipeline"></div>
+            <p id="pipeline-note" class="small"></p>
+        </section>
+    </main>
+</body>
+</html>

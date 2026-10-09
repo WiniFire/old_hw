@@ -1,0 +1,6 @@
+C:\Users\winif\OneDrive\Desktop\old_hw\net_framework_hw\дз1\StationeryShop\bin\Release\StationeryShop.exe.config
+C:\Users\winif\OneDrive\Desktop\old_hw\net_framework_hw\дз1\StationeryShop\bin\Release\StationeryShop.exe
+C:\Users\winif\OneDrive\Desktop\old_hw\net_framework_hw\дз1\StationeryShop\bin\Release\StationeryShop.pdb
+C:\Users\winif\OneDrive\Desktop\old_hw\net_framework_hw\дз1\StationeryShop\obj\Release\StationeryShop.csprojResolveAssemblyReference.cache
+C:\Users\winif\OneDrive\Desktop\old_hw\net_framework_hw\дз1\StationeryShop\obj\Release\StationeryShop.exe
+C:\Users\winif\OneDrive\Desktop\old_hw\net_framework_hw\дз1\StationeryShop\obj\Release\StationeryShop.pdb

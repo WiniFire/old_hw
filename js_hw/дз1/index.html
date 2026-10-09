@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Преобразование типов</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="converter">
+        <h1>Преобразование типов</h1>
+        <p class="description">Введите значение и выберите тип для преобразования.</p>
+
+        <form id="converter-form">
+            <label for="value-input">Значение</label>
+            <input id="value-input" type="text" placeholder="Например: 123" autocomplete="off">
+
+            <label for="type-select">Преобразовать в</label>
+            <select id="type-select">
+                <option value="Number">Number</option>
+                <option value="String">String</option>
+                <option value="Boolean">Boolean</option>
+            </select>
+
+            <button type="submit">Преобразовать</button>
+        </form>
+
+        <section class="result" aria-live="polite" aria-atomic="true">
+            <h2>Результат</h2>
+            <output id="result-output">—</output>
+            <p id="result-type">Тип: —</p>
+            <p id="result-note" class="note"></p>
+        </section>
+
+        <p class="hint">Ввод читается как строка. Boolean возвращает false только для пустой строки; «0» и «false» преобразуются в true.</p>
+    </main>
+</body>
+</html>
