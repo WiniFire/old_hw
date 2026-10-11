@@ -1,0 +1,10 @@
+@model Reader
+@{ ViewData["Title"] = Model.Id == 0 ? "Добавить читателя" : "Изменить читателя"; }
+<h1>@ViewData["Title"]</h1>
+<form asp-action="Save" asp-route-id="@Model.Id" method="post" class="panel edit-form">
+    <div asp-validation-summary="ModelOnly" class="validation"></div>
+    <label asp-for="FullName"></label><input asp-for="FullName" required maxlength="100" /><span asp-validation-for="FullName" class="validation"></span>
+    <label asp-for="Email"></label><input asp-for="Email" type="email" required maxlength="100" /><span asp-validation-for="Email" class="validation"></span>
+    <label asp-for="Phone"></label><input asp-for="Phone" type="tel" required maxlength="30" /><span asp-validation-for="Phone" class="validation"></span>
+    <div class="form-actions"><button type="submit">Сохранить</button><a asp-action="Index">Отмена</a></div>
+</form>

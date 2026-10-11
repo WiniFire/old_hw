@@ -1,0 +1,19 @@
+@model DashboardModel
+@{ ViewData["Title"] = "Главная"; }
+<div class="page-head"><div><h1>Учёт библиотеки</h1><p class="muted">Каталог, читатели и движение книг</p></div>
+<a class="button" asp-controller="Loans" asp-action="Create">Выдать книгу</a></div>
+<div class="stats">
+    <a class="panel" asp-controller="Books" asp-action="Index"><strong>@Model.Books</strong><span>Названий книг</span></a>
+    <a class="panel" asp-controller="Readers" asp-action="Index"><strong>@Model.Readers</strong><span>Читателей</span></a>
+    <a class="panel" asp-controller="Loans" asp-action="Index"><strong>@Model.ActiveLoans</strong><span>Книг на руках</span></a>
+    <a class="panel" asp-controller="Loans" asp-action="Index" asp-route-status="overdue"><strong class="danger-text">@Model.Overdue</strong><span>Просроченных выдач</span></a>
+</div>
+<h2>Последние выдачи</h2>
+<div class="table-wrap"><table><thead><tr><th>Книга</th><th>Читатель</th><th>Вернуть до</th><th>Состояние</th></tr></thead><tbody>
+@foreach (var loan in Model.RecentLoans)
+{
+    <tr><td>@loan.Book.Title</td><td>@loan.Reader.FullName</td><td>@loan.DueDate.ToString("dd.MM.yyyy")</td>
+    <td>@(loan.ReturnedAt != null ? "Возвращена" : loan.IsOverdue ? "Просрочена" : "На руках")</td></tr>
+}
+@if (Model.RecentLoans.Count == 0) { <tr><td colspan="4">Выдач пока нет.</td></tr> }
+</tbody></table></div>

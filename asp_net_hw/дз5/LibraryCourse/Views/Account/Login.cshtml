@@ -1,0 +1,16 @@
+@model LoginModel
+@{ ViewData["Title"] = "Вход"; }
+<section class="login panel">
+    <h1>Вход библиотекаря</h1>
+    <p class="muted">Войдите, чтобы работать с каталогом и выдачами.</p>
+    <form asp-action="Login" asp-route-returnUrl="@Context.Request.Query["ReturnUrl"]" method="post">
+        <div asp-validation-summary="ModelOnly" class="validation"></div>
+        <label asp-for="Login"></label>
+        <input asp-for="Login" autocomplete="username" required />
+        <span asp-validation-for="Login" class="validation"></span>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" autocomplete="current-password" required />
+        <span asp-validation-for="Password" class="validation"></span>
+        <button type="submit">Войти</button>
+    </form>
+</section>

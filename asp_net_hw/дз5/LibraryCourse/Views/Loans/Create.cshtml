@@ -1,0 +1,14 @@
+@model IssueModel
+@{ ViewData["Title"] = "Выдать книгу"; }
+<h1>Выдать книгу</h1>
+<form asp-action="Create" method="post" class="panel edit-form">
+    <div asp-validation-summary="ModelOnly" class="validation"></div>
+    <label asp-for="BookId"></label><select asp-for="BookId" asp-items="ViewBag.Books" required><option value="">Выберите книгу</option></select>
+    <span asp-validation-for="BookId" class="validation"></span>
+    <label asp-for="ReaderId"></label><select asp-for="ReaderId" asp-items="ViewBag.Readers" required><option value="">Выберите читателя</option></select>
+    <span asp-validation-for="ReaderId" class="validation"></span>
+    <label asp-for="DueDate"></label><input asp-for="DueDate" min="@DateTime.Today.ToString("yyyy-MM-dd")" max="@DateTime.Today.AddDays(90).ToString("yyyy-MM-dd")" required />
+    <span asp-validation-for="DueDate" class="validation"></span>
+    <p class="muted">В списке показаны только книги со свободными экземплярами. Максимальный срок — 90 дней.</p>
+    <div class="form-actions"><button type="submit">Оформить выдачу</button><a asp-action="Index">Отмена</a></div>
+</form>

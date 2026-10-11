@@ -1,0 +1,14 @@
+@model Book
+@{ ViewData["Title"] = "Удаление книги"; }
+<h1>Удаление книги</h1>
+<section class="panel edit-form">
+<p>@Model.Title — @Model.Author</p>
+@if (Model.Loans.Count > 0)
+{ <p>Книга есть в истории выдач. Удаление недоступно.</p> }
+else
+{
+    <p>Удалить эту книгу из каталога?</p>
+    <form asp-action="DeleteConfirmed" asp-route-id="@Model.Id" method="post"><button class="danger" type="submit">Удалить</button></form>
+}
+<a asp-action="Index">Назад к каталогу</a>
+</section>

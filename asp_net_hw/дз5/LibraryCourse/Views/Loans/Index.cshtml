@@ -1,0 +1,16 @@
+@model List<Loan>
+@{ ViewData["Title"] = "Выдачи"; }
+<div class="page-head"><h1>Выдачи книг</h1><a class="button" asp-action="Create">Выдать книгу</a></div>
+<div class="tabs">
+@foreach (var item in new[] { ("active", "На руках"), ("overdue", "Просрочены"), ("returned", "Возвращены"), ("all", "Вся история") })
+{ <a class="@(item.Item1 == (string)ViewBag.Status ? "selected" : "")" asp-action="Index" asp-route-status="@item.Item1">@item.Item2</a> }
+</div>
+<div class="table-wrap"><table><thead><tr><th>Книга</th><th>Читатель</th><th>Выдана</th><th>Вернуть до</th><th>Состояние</th><th></th></tr></thead><tbody>
+@foreach (var loan in Model)
+{
+    <tr><td>@loan.Book.Title</td><td>@loan.Reader.FullName</td><td>@loan.IssuedAt.ToString("dd.MM.yyyy")</td><td>@loan.DueDate.ToString("dd.MM.yyyy")</td>
+    <td class="@(loan.IsOverdue ? "danger-text" : "")">@(loan.ReturnedAt != null ? "Возвращена " + loan.ReturnedAt.Value.ToString("dd.MM.yyyy") : loan.IsOverdue ? "Просрочена" : "На руках")</td>
+    <td>@if (loan.ReturnedAt == null) { <form asp-action="Return" asp-route-id="@loan.Id" method="post"><button class="small" type="submit">Вернуть</button></form> }</td></tr>
+}
+@if (Model.Count == 0) { <tr><td colspan="6">В этом разделе выдач нет.</td></tr> }
+</tbody></table></div>
